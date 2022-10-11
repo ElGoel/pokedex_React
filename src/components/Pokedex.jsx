@@ -53,6 +53,7 @@ const Pokedex = ({
               totalPage={totalPage}
               setTypePages={setTypePages}
               setLimit={setLimit}
+              pokemonsData={pokemonsData}
             />
           </div>
         ) : (

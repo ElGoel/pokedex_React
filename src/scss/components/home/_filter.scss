@@ -125,7 +125,7 @@
 .filter-toggle {
     background-color: #616161;
     width: 70%;
-    @include m.phone {
+    @include m.tablet {
         width: 40%;
     }
     margin: 0 auto;

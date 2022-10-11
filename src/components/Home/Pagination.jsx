@@ -1,30 +1,35 @@
-const Pagination = ({setPage, page, totalPage, setTypePages, setLimit}) => {
+const Pagination = ({
+  setPage,
+  page,
+  totalPage,
+  setTypePages,
+  setLimit,
+  pokemonsData,
+}) => {
+  const firstPage = () => {
+    setPage(0);
+    setTypePages(1);
+    setLimit(0);
+  };
 
-const firstPage = () => {
-  setPage(0);
-  setTypePages(1);
-  setLimit(0);
-}
+  const previousPage = () => {
+    setPage((prev) => prev - 1);
+    setTypePages((prev) => prev - 1);
+    setLimit((prev) => prev - 12);
+  };
 
-const previousPage = () => {
-  setPage(prev => prev - 1);
-  setTypePages(prev => prev - 1);
-  setLimit(prev => prev - 12);
-}
+  const nextPage = () => {
+    setPage((prev) => prev + 1);
+    setTypePages((prev) => prev + 1);
+    setLimit((prev) => prev + 12);
+  };
 
-
-const nextPage = () => {
-  setPage(prev => prev + 1);
-  setTypePages(prev => prev + 1);
-  setLimit(prev => prev + 12);
-}
-
-const lastPage = () => {
-  const nextPage = Math.max(page, totalPage);
-  setPage(prev => prev = nextPage);
-  // setTypePages(1);
-  // setLimit(0);
-}
+  const lastPage = () => {
+    const nextPage = Math.max(page, totalPage);
+    setPage((prev) => (prev = nextPage));
+    // setTypePages(1);
+    // setLimit(0);
+  };
 
   return (
     <div className="paginator">
@@ -57,27 +62,12 @@ const lastPage = () => {
       {/* <button className="paginator--page" disabled>
         {page < 1 ? "1" : page + 1}
       </button> */}
-      {page === totalPage ? (
-        ""
-      ) : (
+      {pokemonsData.length >= 12 && (
         <button
           className="button paginator--nextPage"
           disabled={page === totalPage}
           onClick={nextPage}
         >
-          {/* <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="20"
-            height="20"
-            fill="white"
-            className="bi bi-arrow-right-short"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fillRule="evenodd"
-              d="M4 8a.5.5 0 0 1 .5-.5h5.793L8.146 5.354a.5.5 0 1 1 .708-.708l3 3a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708-.708L10.293 8.5H4.5A.5.5 0 0 1 4 8z"
-            />
-          </svg> */}
           Load More Pokemons!
         </button>
       )}
@@ -107,6 +97,6 @@ const lastPage = () => {
       )} */}
     </div>
   );
-}
+};
 
-export default Pagination
+export default Pagination;
