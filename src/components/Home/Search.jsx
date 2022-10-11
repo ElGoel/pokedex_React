@@ -23,7 +23,7 @@ const Search = ({
     <>
       <form className="form" onSubmit={handleSubmit}>
         <div className="form--input">
-          <label htmlFor="search">Nombre o númbero</label>
+          <label htmlFor="search">Name or Number</label>
           <input
             onChange={handleChange}
             value={search}
