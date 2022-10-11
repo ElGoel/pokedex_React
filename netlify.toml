@@ -1,0 +1,11 @@
+[[redirects]]
+  from = "/"
+  to = "/pokemon/:id"
+  status = 301
+  force = false
+
+[[redirects]]
+  from = "/pokemon/:id"
+  to = "/pokemon/:id"
+  status = 301
+  force = false
