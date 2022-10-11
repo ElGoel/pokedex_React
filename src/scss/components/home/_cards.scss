@@ -4,6 +4,9 @@
 .content {
     background-color: white;
     margin: 0 auto;
+    @include m.phone {
+        margin: 0 1rem
+    }
     @include m.note {
         margin: 0 3rem
     }
@@ -34,9 +37,8 @@
         height: 100%;
     }
     .card--image__img {
-        width: 205px;
+        width: 100%;
         max-width: 100%;
-        height: 205px;
     }
     .card--image {
         background-color: #f2f2f2;
