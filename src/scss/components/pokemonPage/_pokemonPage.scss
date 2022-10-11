@@ -1,0 +1,26 @@
+@use '../../base/mixins' as m;
+
+.back-button {
+    width: 100%;
+    text-align: right;
+    padding: 0 1rem 1rem 1rem;
+    @include m.tablet {
+        padding: 0;
+    }
+}
+
+.btn-back {
+    background-color: #ee711e;
+    color: #ffffff;
+    @include m.tablet {
+        margin: 1rem;
+        display: inline-block;
+        width: auto;
+    }
+    width: 100%;
+    padding: 1rem;
+    transition: .2s;
+    &:hover {
+        background-color: darken($color: #ee711e, $amount: 10);
+    }
+}

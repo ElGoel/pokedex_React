@@ -1,0 +1,110 @@
+@use '../../abstracts/variables' as v;
+@use '../../base/mixins' as m;
+
+.content {
+    background-color: white;
+    margin: 0 auto;
+    @include m.note {
+        margin: 0 3rem
+    }
+    @include m.desktop {
+        margin: 0 auto;
+    }
+    max-width: 60rem;
+    min-height: 100vh;
+    text-align: center;
+    .content--cards {
+        @include m.note {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            justify-items: center;
+            @include m.tablet {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                justify-items: center;
+                @include m.desktop {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    justify-items: center;
+                }
+            }
+
+        }
+        padding: 1rem 1rem 9rem;
+        height: 100%;
+    }
+    .card--image__img {
+        width: 205px;
+        max-width: 100%;
+        height: 205px;
+    }
+    .card--image {
+        background-color: #f2f2f2;
+    }
+    .card--types {
+        display: flex;
+        padding: 0;
+        justify-content: left;
+        gap: .2rem;
+        margin-top: .5rem;
+        @each $typename, $color in v.$colorTypes {
+            .type-#{$typename} {
+                background-color: map-get($color, 'background');
+                color: map-get($color, 'color');
+                padding: .1rem 1.2rem;
+                font-size: .8rem;
+                border-radius: 3px;
+             }
+        } 
+    }
+    .card--info {
+        text-align: left;
+        padding: 0 1rem 1rem;
+        h3 {
+            color: #979797;
+            font-size: .7rem;
+        }
+        h1 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-top: .5rem;
+            color: #222222;
+        }
+    }
+}
+
+.container--cards {
+    padding-top: 1rem;
+}
+
+@keyframes bounce {
+	0%, 100%, 20%, 50%, 80% {
+		-webkit-transform: translateY(0);
+		-ms-transform:     translateY(0);
+		transform:         translateY(0)
+	}
+	20% {
+		-webkit-transform: translateY(-3px);
+		-ms-transform:     translateY(-3px);
+		transform:         translateY(-3px)
+	}
+}
+
+.card {
+    padding: .5rem;
+    -webkit-animation-duration: .5s;
+    animation-duration: .5s;
+    animation-delay: 0s;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+    -webkit-animation-timing-function: ease-in-out;
+    animation-timing-function: ease-in-out;
+    &:hover {
+        cursor: pointer;
+        animation-name: bounce;
+        -moz-animation-name: bounce;
+    }
+}
+
+

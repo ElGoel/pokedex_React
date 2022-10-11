@@ -1,0 +1,84 @@
+
+// Tamaño de Media Queries
+$phone: 480px;
+$note: 510px;
+$tablet: 768px;
+$desktop: 1024px;
+
+$colorTypes: (
+    "normal": (
+        "background": #A8A77A,    
+        "color": #000000 
+    ),
+    "fire": (
+        "background": #EE8130,
+        "color": #FFFFFF
+    ),
+    "water": (
+        "background": #6390F0,
+        "color": #FFFFFF
+    ),
+    "electric": (
+        "background": #F7D02C,
+        "color": #000000
+    ),
+    "grass": (
+        "background": #7AC74C,
+        "color": #000000
+    ),
+    "ice": (
+        "background": #96D9D6,
+        "color": #000000
+    ),
+    "fighting": (
+        "background": #C22E28,
+        "color": #FFFFFF
+    ),
+    "poison": (
+        "background": #A33EA1,
+        "color": #FFFFFF
+    ),
+    "ground": (
+        "background": #E2BF65,
+        "color": #000000
+    ),
+    "flying": (
+        "background": #A98FF3,
+        "color": #FFFFFF
+    ),
+    "psychic": (
+        "background": #F95587,
+        "color": #FFFFFF
+    ),
+    "bug": (
+        "background": #A6B91A,
+        "color": #FFFFFF
+    ),
+    "rock": (
+        "background": #B6A136,
+        "color": #FFFFFF
+    ),
+    "ghost": (
+        "background": #735797,
+        "color": #FFFFFF
+    ),
+    "dragon": (
+        "background": #6F35FC,
+        "color": #FFFFFF
+    ),
+    "dark": (
+        "background": #705746,
+        "color": #FFFFFF
+    ),
+    "steel": (
+        "background": #B7B7CE,
+        "color": #000000
+    ),
+    "fairy": (
+        "background": #D685AD,
+        "color": #000000
+    ),
+
+);
+
+$fonts: 'Inter';

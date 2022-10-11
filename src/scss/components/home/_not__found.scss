@@ -1,0 +1,27 @@
+.not__found {
+    position: absolute;
+    top: 30%;
+    left: 25%;
+    right: 25%;
+    width: 500px;
+    text-align: justify;
+    color: #2b2b2b;
+    display: flex;
+    flex-direction: column;
+}
+
+.not__found--title {
+    margin-bottom: 2rem;
+    font-size: 3rem;
+
+}
+
+.not__found--massage {
+    font-size: 1.4rem;
+    line-height: 1.7rem;
+}
+
+.not__found--img {
+    width: 250px;
+    margin-left: auto;
+}
