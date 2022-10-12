@@ -26,7 +26,8 @@ function App() {
     getPokemons,
     getFilterTypes,
     setType,
-    setIsFilter
+    setIsFilter,
+    type
   } = useGetPokemons(page, offset, limit);
 
   const getTypesFilter = async() => {
@@ -83,11 +84,13 @@ function App() {
   }
 
   const handleSearchType = () => {
-    setPokemonsData([]);
-    setPage(0);
-    setoffset(1);
-    setLimit(0);
-    getFilterTypes();
+    if (type) {
+      setPokemonsData([]);
+      setPage(0);
+      setoffset(1);
+      setLimit(0);
+      getFilterTypes();
+    }
   }
 
   const removeFilters = () => {

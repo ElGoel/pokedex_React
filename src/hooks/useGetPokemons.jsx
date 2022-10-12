@@ -81,7 +81,8 @@ const useGetPokemons = (page, offset, limit) => {
     getFilterTypes,
     setType,
     isFilter,
-    setIsFilter
+    setIsFilter,
+    type
   };
 }
 

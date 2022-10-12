@@ -2,6 +2,7 @@ import Card from './Card';
 import { Link } from 'react-router-dom';
 // import { useRef, useCallback } from 'react';
 
+
 const Cards = ({
   pokemones,
   // isPending,
@@ -12,7 +13,8 @@ const Cards = ({
   // setTypePages,
   // setLimit,
   // offset,
-  // limit
+  // limit,
+  cardsSection
 }) => {
 
 /**
@@ -74,7 +76,7 @@ const Cards = ({
   });
 
   return (
-    <div className="container--cards">
+    <div ref={cardsSection} className="container--cards">
       <div onClick={removeFilters} className="content--cards">{cardsData}</div>
     </div>
   );

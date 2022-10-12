@@ -3,6 +3,7 @@ import Loader from './Home/Loader';
 import NotFound from './Home/NotFound';
 import Pagination from './Home/Pagination';
 import Search from './Home/Search';
+import { useRef } from 'react';
 
 const Pokedex = ({
   pokemonsData,
@@ -22,16 +23,26 @@ const Pokedex = ({
   offset,
   limit
 }) => {
+  const cardsSection = useRef(null);
+  const scrollDown = () => {
+    window.scrollTo({
+      top: cardsSection.current.offsetTop,
+      behavior: 'smooth',
+    });
+  };
   return (
     <div className="container">
-      <Search
-        searchPokemon={searchPokemon}
-        types={types}
-        handleClickFilter={handleClickFilter}
-        removeFilters={removeFilters}
-        handleSearchType={handleSearchType}
-      />
-      <div className="content">
+      <section>
+        <Search
+          searchPokemon={searchPokemon}
+          types={types}
+          handleClickFilter={handleClickFilter}
+          removeFilters={removeFilters}
+          handleSearchType={handleSearchType}
+          scrollDown={scrollDown}
+        />
+      </section>
+      <section id='cards' className="content">
         {!notFound ? (
           <div>
             <Cards
@@ -45,6 +56,7 @@ const Pokedex = ({
               offset={offset}
               limit={limit}
               removeFilters={removeFilters}
+              cardsSection={cardsSection}
             />
             {isPending && <Loader />}
             <Pagination
@@ -59,7 +71,7 @@ const Pokedex = ({
         ) : (
           <NotFound />
         )}
-      </div>
+      </section>
     </div>
   );
 };

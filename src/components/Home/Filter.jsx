@@ -10,6 +10,7 @@ const Filter = ({
   handleClickFilter,
   removeFilters,
   handleSearchType,
+  scrollDown
 }) => {
   const [styleFilter, setStyleFilter] = useState(style);
 
@@ -32,6 +33,16 @@ const Filter = ({
   };
 
   const typesSelected = types.filter((type) => type.selected === true);
+
+  const handleSearchButton = () => {
+    handleSearchType(); 
+    scrollDown();
+  };
+
+  const handleResetButton = () => {
+    removeFilters(); 
+    scrollDown();
+  };
 
   return (
     <>
@@ -79,10 +90,10 @@ const Filter = ({
             })}
           </ul>
           <div className="filter--search">
-            <button onClick={removeFilters} className="button reset">
+            <button onClick={handleResetButton} className="button reset">
               Reset
             </button>
-            <button onClick={handleSearchType} className="button btn-back">
+            <button onClick={handleSearchButton} className="button btn-back">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
