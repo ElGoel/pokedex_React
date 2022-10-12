@@ -48,9 +48,7 @@ function App() {
   const searchPokemon = async(search, id) => {
     if(!id) {
       setNotFound(false);
-      setIsFilter(false);
-      setPokemonsData([]);
-      getPokemons();
+      removeFilters();
     } else {
       setIsPending(true);
     await pokeApi

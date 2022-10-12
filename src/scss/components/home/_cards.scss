@@ -93,7 +93,10 @@
 }
 
 .card {
-    padding: .5rem;
+    padding: 1rem;
+    @include m.phone {
+        padding: 0.5rem;
+    }
     -webkit-animation-duration: .5s;
     animation-duration: .5s;
     animation-delay: 0s;
