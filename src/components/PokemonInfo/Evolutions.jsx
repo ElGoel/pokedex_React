@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import React from "react";
 
 const Evolutions = ({ pokeEvolves, currentPokemon, defaultTypes }) => {
+
+  const [first, setfirst] = React.useState(0)
   const evolutionChainOne = pokeEvolves.evolOne.map((item) => {
     return (
       <Link
@@ -65,6 +68,15 @@ const Evolutions = ({ pokeEvolves, currentPokemon, defaultTypes }) => {
     );
   });
 
+  const handleResize = () => {
+    setfirst(window.innerWidth);
+  }
+
+  React.useEffect(() => {
+
+    window.addEventListener('resize', handleResize);
+  }, []);
+
   return (
     <>
       <div className="container--evolutions">
@@ -102,17 +114,29 @@ const Evolutions = ({ pokeEvolves, currentPokemon, defaultTypes }) => {
                 ))}
             </div>
           </Link>
-          {evolutionChainOne.length > 0 && (
+          {window.innerWidth < 768 && evolutionChainOne.length > 0 ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="80"
               height="80"
               fill="white"
-              className="bi bi-caret-right"
+              class="bi bi-caret-down"
               viewBox="0 0 16 16"
             >
-              <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
+              <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
             </svg>
+          ) : (evolutionChainOne.length > 0 && (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="80"
+                height="80"
+                fill="white"
+                className="bi bi-caret-right"
+                viewBox="0 0 16 16"
+              >
+                <path d="M6 12.796V3.204L11.481 8 6 12.796zm.659.753 5.48-4.796a1 1 0 0 0 0-1.506L6.66 2.451C6.011 1.885 5 2.345 5 3.204v9.592a1 1 0 0 0 1.659.753z" />
+              </svg>
+            )
           )}
           {evolutionChainOne.length > 1 ? (
             <div
@@ -127,7 +151,18 @@ const Evolutions = ({ pokeEvolves, currentPokemon, defaultTypes }) => {
           ) : (
             evolutionChainOne
           )}
-          {evolutionChainTwo.length > 0 && (
+          {window.innerWidth < 768 && evolutionChainTwo.length > 0 ? (
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="80"
+              height="80"
+              fill="white"
+              class="bi bi-caret-down"
+              viewBox="0 0 16 16"
+            >
+              <path d="M3.204 5h9.592L8 10.481 3.204 5zm-.753.659 4.796 5.48a1 1 0 0 0 1.506 0l4.796-5.48c.566-.647.106-1.659-.753-1.659H3.204a1 1 0 0 0-.753 1.659z" />
+            </svg>
+          ) : evolutionChainTwo.length > 0 && (
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="80"
